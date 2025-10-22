@@ -1,47 +1,49 @@
-# 🤲 Charity Donation Tracker
+# 🌐 Core Name Service (.core Registry)
 
-## 🌍 Overview
+## 🔎 Overview
 
-**Charity Donation Tracker** is a blockchain-powered platform designed to bring **transparency, accountability, and trust** into charitable giving.
-It enables donors to **track the flow of their donations** from contribution to utilization, ensuring that every transaction is **secure, verifiable, and tamper-proof**.
+**Core Name Service (CNS)** is a **decentralized blockchain-based naming system** that maps human-readable domain names (like `username.core`) to blockchain addresses, smart contracts, decentralized websites, and metadata.
+The platform serves as the **identity layer for the Core ecosystem**, simplifying interactions across Web3 applications by replacing long cryptographic addresses with simple `.core` names.
 
-By leveraging **smart contracts** and **decentralized ledgers**, the platform ensures that all donations are traceable and funds are used exactly as promised by the organization.
+Built on **smart contracts**, CNS ensures **ownership, transferability, and permanent recordkeeping** of domain identities through NFT-based registration.
 
 ---
 
 ## 🚀 Key Features
 
-* 💸 **Transparent Donations** – Every contribution is recorded immutably on the blockchain.
-* 🧾 **Donation Tracking** – Donors can track their funds and see how they are allocated to projects.
-* 🔗 **Smart Contracts for Fund Distribution** – Automates release of funds based on milestones or verified impact reports.
-* 🧍 **Donor Verification** – Optional donor identity verification for regulated charities.
-* 🏢 **Charity Profiles** – Each registered charity has an on-chain record of reputation and impact history.
-* 📊 **Analytics Dashboard** – Visualizes donation statistics and impact metrics.
+* 🌍 **Human-Readable Blockchain Names** – Replace wallet addresses (e.g., `0xAbc...123`) with `alice.core`.
+* 🧾 **NFT-Based Ownership** – Every `.core` domain is represented as an ERC-721 NFT.
+* 🔐 **Secure Domain Management** – Users can transfer, renew, or update records via smart contracts.
+* 💡 **Record Resolution** – Map `.core` names to wallet addresses, IPFS sites, or metadata.
+* ⏳ **Domain Expiration & Renewal** – Built-in lifecycle for domains with renewal logic.
+* 🪙 **Decentralized Registry** – No central authority; all name records stored on-chain.
+* 💰 **Bidding & Auctions (optional)** – Prevent domain squatting via auction-based registration.
 
 ---
 
 ## 🏗️ Tech Stack
 
-| Layer                        | Technology                                    |
-| ---------------------------- | --------------------------------------------- |
-| **Blockchain**               | Ethereum / Polygon (Solidity Smart Contracts) |
-| **Smart Contract Framework** | Hardhat / Truffle                             |
-| **Frontend**                 | React.js / Next.js                            |
-| **Backend**                  | Node.js / Express                             |
-| **Storage**                  | IPFS / Pinata                                 |
-| **Wallet Integration**       | MetaMask / WalletConnect                      |
-| **Database (Optional)**      | MongoDB / Firebase                            |
+| Layer                        | Technology                                            |
+| ---------------------------- | ----------------------------------------------------- |
+| **Blockchain**               | Ethereum / Core Blockchain (Solidity Smart Contracts) |
+| **Smart Contract Framework** | Hardhat / Truffle                                     |
+| **Frontend**                 | React.js / Next.js                                    |
+| **Backend (optional)**       | Node.js / Express                                     |
+| **Storage**                  | IPFS / Pinata                                         |
+| **Wallet Integration**       | MetaMask / WalletConnect                              |
+| **Database (optional)**      | MongoDB / Firebase                                    |
 
 ---
 
 ## 🧩 Smart Contract Functionalities
 
-* `registerCharity()` – Add a verified charity to the blockchain registry.
-* `donate()` – Accept donations and record them on-chain.
-* `trackDonation()` – View complete history and utilization of each donation.
-* `releaseFunds()` – Allow funds to be disbursed to charities upon milestone completion.
-* `getCharityDetails()` – Retrieve transparency reports and impact metrics for any charity.
-* `withdrawFunds()` – Allow charities to withdraw verified and approved donations.
+* `registerName()` – Register a new `.core` name and mint it as an NFT.
+* `renewName()` – Extend ownership of an existing domain.
+* `setRecord()` – Link `.core` name to a wallet address, website, or other data.
+* `resolveName()` – Retrieve the address or data mapped to a `.core` name.
+* `transferName()` – Transfer ownership of a `.core` name NFT.
+* `expireDomain()` – Automatically release names after expiration.
+* `setResolver()` – Update resolver contracts for domain configuration.
 
 ---
 
@@ -50,8 +52,8 @@ By leveraging **smart contracts** and **decentralized ledgers**, the platform en
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Charity-Donation-Tracker.git
-cd Charity-Donation-Tracker
+git clone https://github.com/yourusername/Core-Name-Service.git
+cd Core-Name-Service
 ```
 
 ### 2️⃣ Install dependencies
@@ -62,7 +64,7 @@ npm install
 
 ### 3️⃣ Configure environment variables
 
-Create a `.env` file in the root directory and include:
+Create a `.env` file in the root directory and add:
 
 ```
 PRIVATE_KEY=your_wallet_private_key
@@ -71,7 +73,7 @@ PINATA_API_KEY=your_pinata_key
 PINATA_SECRET_API_KEY=your_pinata_secret
 ```
 
-### 4️⃣ Compile & deploy smart contracts
+### 4️⃣ Compile & deploy contracts
 
 ```bash
 npx hardhat compile
@@ -86,23 +88,52 @@ npm run dev
 
 ---
 
-## 🧠 Working Mechanism
+## 🧠 How It Works
 
-1. **Charity Registration:** Verified organizations register on-chain with transparency credentials.
-2. **Donation Execution:** Donors select a project and send crypto donations directly through the platform.
-3. **Smart Contract Hold:** Funds are held in escrow until milestones are validated.
-4. **Fund Release:** Smart contracts automatically transfer funds upon milestone verification.
-5. **Transparency Report:** Donors can trace every donation on the blockchain and view proof-of-use.
+### Domain Registration Flow
+
+1. **User chooses a `.core` name** → e.g., `hridyansh.core`.
+2. **Smart contract checks availability** → if available, user pays registration fee.
+3. **NFT minted** → representing ownership of `hridyansh.core`.
+4. **Resolver set** → links domain to user’s wallet or metadata.
+5. **Name usable across dApps** → payments, identity, and decentralized websites.
+
+### Example Transaction
+
+| Action     | Function                                | Description                     |
+| ---------- | --------------------------------------- | ------------------------------- |
+| Register   | `registerName("hridyansh")`             | Mints `hridyansh.core` NFT      |
+| Set Wallet | `setRecord("hridyansh.core", 0x123...)` | Maps `.core` name to wallet     |
+| Resolve    | `resolveName("hridyansh.core")`         | Returns wallet address          |
+| Renew      | `renewName("hridyansh.core")`           | Extends domain ownership period |
+
+---
+
+## 🧩 Smart Contract Example (Simplified)
+
+```solidity
+function registerName(string memory name) public payable {
+    require(!nameExists[name], "Name already registered");
+    require(msg.value >= registrationFee, "Insufficient fee");
+
+    uint256 tokenId = uint256(keccak256(abi.encodePacked(name)));
+    _safeMint(msg.sender, tokenId);
+
+    nameExists[name] = true;
+    nameToOwner[name] = msg.sender;
+    emit NameRegistered(name, msg.sender, tokenId);
+}
+```
 
 ---
 
 ## 🔮 Future Enhancements
 
-* 🛰️ Integration with IoT and oracles for on-ground verification.
-* 📱 Mobile app for real-time donation tracking.
-* 🌐 Multi-chain compatibility (Ethereum, BSC, Polygon).
-* 🤖 AI-based trust scoring for charities.
-* 🪶 Integration with UN SDG metrics for global impact tracking.
+* 🌐 **Cross-Chain Resolution** – Allow `.core` names to be used across multiple networks.
+* 🧠 **ENS Compatibility** – Integrate `.core` with ENS Resolver Standards.
+* 🔑 **Subdomain Support** – Enable names like `wallet.hridyansh.core`.
+* 🪶 **DAO Governance** – Community voting for pricing, expiration rules, and new features.
+* 💹 **Dynamic Pricing Model** – Domain prices based on length or demand.
 
 ---
 
@@ -114,15 +145,15 @@ This project is licensed under the **MIT License** — see the [LICENSE](./LICEN
 
 ## 🤝 Contributing
 
-We welcome contributions from developers, non-profits, and blockchain enthusiasts!
-Fork this repository, create a feature branch, and submit a pull request.
+We welcome contributions and suggestions!
+Fork the repository, create a branch, and open a pull request.
 
 ---
 
 ## 📊 Vision Statement
 
-> “Transparency breeds trust — and trust fuels generosity.”
-> This project aims to revolutionize philanthropy through blockchain accountability. 🌱
+> “Decentralized identities for a decentralized world.”
+> Core Name Service bridges human readability and blockchain technology through on-chain naming infrastructure.
 
 ---
 
@@ -132,3 +163,4 @@ Fork this repository, create a feature branch, and submit a pull request.
 📧 Email: *[your-email@example.com](mailto:your-email@example.com)*
 🔗 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
 🌍 GitHub: [@yourusername](https://github.com/yourusername)
+
