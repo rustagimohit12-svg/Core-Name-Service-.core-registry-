@@ -7,7 +7,7 @@ The platform serves as the **identity layer for the Core ecosystem**, simplifyin
 
 Built on **smart contracts**, CNS ensures **ownership, transferability, and permanent recordkeeping** of domain identities through NFT-based registration.
 
----
+-
 
 ## 🚀 Key Features
 
