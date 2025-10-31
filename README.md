@@ -164,3 +164,6 @@ Fork the repository, create a branch, and open a pull request.
 🔗 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
 🌍 GitHub: [@yourusername](https://github.com/yourusername)
 
+<img width="1470" height="956" alt="Screenshot 2025-11-01 at 12 10 27 AM" src="https://github.com/user-attachments/assets/bcd6ce1b-6fea-4780-8bb3-ed5b26735a1f" />
+
+
